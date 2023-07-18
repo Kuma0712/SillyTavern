@@ -308,7 +308,7 @@ export let CLIENT_VERSION = 'SillyTavern:UNKNOWN:Cohee#1207'; // For Horde heade
 let is_colab = false;
 let is_checked_colab = false;
 let is_mes_reload_avatar = false;
-let optionsPopper = Popper.createPopper(document.getElementById('send_form'), document.getElementById('options'), {
+let optionsPopper = Popper.createPopper(document.getElementById('options_button'), document.getElementById('options'), {
     placement: 'top-start'
 });
 let exportPopper = Popper.createPopper(document.getElementById('export_button'), document.getElementById('export_format_popup'), {
@@ -7358,7 +7358,6 @@ $(document).ready(function () {
     });
 
     const elementsToUpdate = {
-<<<<<<< HEAD
         '#description_textarea': function () { create_save.description = $("#description_textarea").val(); },
         '#creator_notes_textarea': function () { create_save.creator_notes = $("#creator_notes_textarea").val(); },
         '#character_version_textarea': function () { create_save.character_version = $("#character_version_textarea").val(); },
@@ -7371,24 +7370,10 @@ $(document).ready(function () {
         '#mes_example_textarea': function () { create_save.mes_example = $("#mes_example_textarea").val(); },
         '#firstmessage_textarea': function () { create_save.first_message = $("#firstmessage_textarea").val(); },
         '#talkativeness_slider': function () { create_save.talkativeness = $("#talkativeness_slider").val(); },
-=======
-        '#description_textarea': function() { create_save_description = $("#description_textarea").val(); },
-        '#creator_notes_textarea': function() { create_save_creator_notes = $("#creator_notes_textarea").val(); },
-        '#character_version_textarea': function() { create_save_character_version = $("#character_version_textarea").val(); },
-        '#system_prompt_textarea': function() { create_save_system_prompt = $("#system_prompt_textarea").val(); },
-        '#post_history_instructions_textarea': function() { create_save_post_history_instructions = $("#post_history_instructions_textarea").val(); },
-        '#creator_textarea': function() { create_save_creator = $("#creator_textarea").val(); },
-        '#tags_textarea': function() { create_save_tags = $("#tags_textarea").val(); },
-        '#personality_textarea': function() { create_save_personality = $("#personality_textarea").val(); },
-        '#scenario_pole': function() { create_save_scenario = $("#scenario_pole").val(); },
-        '#mes_example_textarea': function() { create_save_mes_example = $("#mes_example_textarea").val(); },
-        '#firstmessage_textarea': function() { create_save_first_message = $("#firstmessage_textarea").val(); },
-        '#talkativeness_slider': function() { create_save_talkativeness = $("#talkativeness_slider").val(); },
->>>>>>> parent of 5b8db25a (faster, smarter handling of options menu)
     };
 
-    Object.keys(elementsToUpdate).forEach(function(id) {
-        $(id).on("input", function() {
+    Object.keys(elementsToUpdate).forEach(function (id) {
+        $(id).on("input", function () {
             if (menu_type == "create") {
                 elementsToUpdate[id]();
             } else {
@@ -7558,7 +7543,6 @@ $(document).ready(function () {
         }
     });
 
-<<<<<<< HEAD
     var button = $('#options_button');
     var menu = $('#options');
 
@@ -7583,37 +7567,6 @@ $(document).ready(function () {
         setTimeout(() => {
             if (!isMouseOverButtonOrMenu()) { hideMenu(); }
         }, 100)
-=======
-    $("body").click(function () {
-        if ($("#options").css("opacity") == 1.0) {
-            $("#options").transition({
-                opacity: 0.0,
-                duration: 100, //animation_duration,
-                easing: animation_easing,
-                complete: function () {
-                    $("#options").css("display", "none");
-                },
-            });
-        }
-    });
-
-    $("#options_button").click(function () {
-        // this is the options button click function, shows the options menu if closed
-        if (
-            $("#options").css("display") === "none" &&
-            $("#options").css("opacity") == 0.0
-        ) {
-            optionsPopper.update();
-            showBookmarksButtons();
-            $("#options").css("display", "block");
-            $("#options").transition({
-                opacity: 1.0, // the manual setting of CSS via JS is what allows the click-away feature to work
-                duration: 100,
-                easing: animation_easing,
-                complete: function () { optionsPopper.update(); },
-            });
-        }
->>>>>>> parent of 5b8db25a (faster, smarter handling of options menu)
     });
     menu.on('mouseleave', function () {
         //delay to prevent menu hide when mouseleaves menu into button
