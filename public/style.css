@@ -545,6 +545,7 @@ hr {
     font-weight: 400;
 }
 
+<<<<<<< HEAD
 #options,
 #extensionsMenu {
     display: flex;
@@ -554,6 +555,13 @@ hr {
     backdrop-filter: blur(var(--SmartThemeBlurStrength));
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     flex-flow: column;
+=======
+#options {
+    opacity: 0.0;
+    display: none;
+    z-index: 1990;
+
+>>>>>>> parent of 5b8db25a (faster, smarter handling of options menu)
 }
 
 .options-content,
